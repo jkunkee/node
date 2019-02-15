@@ -18,6 +18,23 @@
       'includes': ['config/archs/linux-armv4/asm/openssl.gypi'],
     }, 'target_arch=="arm64" and OS=="linux"', {
       'includes': ['config/archs/linux-aarch64/asm/openssl.gypi'],
+    }, 'target_arch=="arm64" and OS=="win"', {
+      'includes': ['config/archs/VC-WIN64-ARM/asm/openssl.gypi'],
+      'rules': [
+        {
+          'rule_name': 'Assemble',
+          'extension': 'asm',
+          'inputs': [],
+          'outputs': [
+            '<(INTERMEDIATE_DIR)/<(RULE_INPUT_ROOT).obj',
+          ],
+          'action': [
+            'armasm64.exe',
+            '-o', '<(INTERMEDIATE_DIR)/<(RULE_INPUT_ROOT).obj',
+            '<(RULE_INPUT_PATH)',
+          ],
+        }
+      ],
     }, 'target_arch=="ia32" and OS=="linux"', {
       'includes': ['config/archs/linux-elf/asm/openssl.gypi'],
     }, 'target_arch=="ia32" and OS=="mac"', {
