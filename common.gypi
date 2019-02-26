@@ -80,7 +80,7 @@
     'conditions': [
       ['target_arch=="arm64"', {
         # Disabled pending https://github.com/nodejs/node/issues/23913.
-        'openssl_no_asm%': 1,
+        'openssl_no_asm%': 0,
       }, {
         'openssl_no_asm%': 0,
       }],
