@@ -21,8 +21,6 @@
 # include "./archs/VC-WIN32/asm/crypto/include/internal/bn_conf.h"
 #elif defined(_WIN32) && defined(_M_X64)
 # include "./archs/VC-WIN64A/asm/crypto/include/internal/bn_conf.h"
-#elif defined(_WIN32) && defined(_M_ARM64)
-# include "./archs/VC-WIN64-ARM/asm/crypto/include/internal/bn_conf.h"
 #elif (defined(__FreeBSD__) || defined(__OpenBSD__)) && defined(__i386__)
 # include "./archs/BSD-x86/asm/crypto/include/internal/bn_conf.h"
 #elif (defined(__FreeBSD__) || defined(__OpenBSD__)) && defined(__x86_64__)
