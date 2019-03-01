@@ -40,10 +40,13 @@
       'dependencies': ['openssl'],
       'includes': ['./openssl_common.gypi'],
       'conditions': [
-        ['openssl_no_asm==0', {
-          'includes': ['./openssl-cl_asm.gypi'],
-        }, {
+        ['openssl_no_asm==1', {
           'includes': ['./openssl-cl_no_asm.gypi'],
+        }, 'target_arch=="arm64" and OS=="win"', {
+          # VC-WIN64-ARM inherits from VC-noCE-common that has no asms.
+          'includes': ['./openssl-cl_no_asm.gypi'],
+        }, {
+          'includes': ['./openssl-cl_asm.gypi'],
         }],
       ],
     },
